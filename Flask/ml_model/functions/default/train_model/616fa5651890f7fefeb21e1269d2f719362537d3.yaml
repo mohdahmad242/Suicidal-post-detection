@@ -1,0 +1,17 @@
+kind: ''
+metadata:
+  name: train_model
+  tag: ''
+  project: default
+  categories: []
+  hash: 616fa5651890f7fefeb21e1269d2f719362537d3
+  updated: 2021-07-04 10:30:08.567217+00:00
+spec:
+  command: /tmp/tmpdq2m9xka.py
+  args: []
+  image: ''
+  build:
+    commands: []
+  description: ''
+verbose: false
+status: null

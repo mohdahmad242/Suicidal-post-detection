@@ -1,0 +1,17 @@
+kind: ''
+metadata:
+  name: transform_dataset
+  tag: ''
+  project: default
+  categories: []
+  hash: 3d184e40ba80003315922eab012e50418339229d
+  updated: 2021-07-04 10:32:57.338066+00:00
+spec:
+  command: /tmp/tmpbv5c_lem.py
+  args: []
+  image: ''
+  build:
+    commands: []
+  description: ''
+verbose: false
+status: {}

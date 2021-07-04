@@ -1,0 +1,27 @@
+kind: run
+metadata:
+  name: train_model
+  uid: 3bd61d67c6224a66b4b69bbb1ca9dff4
+  iteration: 0
+  project: default
+  labels:
+    kind: ''
+    owner: ahmadkhan242
+  annotations: {}
+spec:
+  function: default/train_model@616fa5651890f7fefeb21e1269d2f719362537d3
+  log_level: info
+  parameters: {}
+  outputs: []
+  output_path: ./Data
+  inputs:
+    input_ds: store://artifacts/default/transform_dataset_suicide_dataset_transformed:0d1929adf7d245639a0063de6e2b5b92
+  hyperparams: {}
+  hyper_param_options: {}
+  data_stores: []
+status:
+  state: running
+  results: {}
+  start_time: '2021-07-04T10:30:08.571857+00:00'
+  last_update: '2021-07-04T10:30:08.571862+00:00'
+  artifacts: []

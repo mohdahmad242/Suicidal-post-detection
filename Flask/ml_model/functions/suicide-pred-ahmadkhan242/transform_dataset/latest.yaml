@@ -1,0 +1,17 @@
+kind: ''
+metadata:
+  name: transform_dataset
+  tag: ''
+  project: suicide-pred-ahmadkhan242
+  categories: []
+  hash: f9455e8b89e9ef2dcdd34567a64cfc61cff6d3d4
+  updated: 2021-07-04 10:39:20.610584+00:00
+spec:
+  command: /tmp/tmp65weevyt.py
+  args: []
+  image: ''
+  build:
+    commands: []
+  description: ''
+verbose: false
+status: {}

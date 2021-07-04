@@ -1,0 +1,27 @@
+kind: run
+metadata:
+  name: suicide-fetch_data
+  uid: 9e42034769fe496cb5d569c0a9d596a8
+  iteration: 0
+  project: suicide-pred-ahmadkhan242
+  labels:
+    kind: ''
+    owner: ahmadkhan242
+  annotations: {}
+spec:
+  function: suicide-pred-ahmadkhan242/suicide@60141c400320ed72583af538d42a7232f95cddae
+  log_level: info
+  parameters: {}
+  outputs: []
+  output_path: ./Data
+  inputs:
+    data_path: suicidal_data1.csv
+  hyperparams: {}
+  hyper_param_options: {}
+  data_stores: []
+status:
+  state: running
+  results: {}
+  start_time: '2021-07-04T10:20:21.350277+00:00'
+  last_update: '2021-07-04T10:20:21.350283+00:00'
+  artifacts: []
