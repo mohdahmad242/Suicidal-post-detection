@@ -1,6 +1,5 @@
         
  <br>
- <h1 align="center">Chapter Two</h1>
  <h2 align="center">Deployment of Machine Learning Model on Heroku using Flask</h2>
 
  <p align="center">
@@ -29,7 +28,7 @@
 Flask is a lightweight web framework written in Python. Flask is easy to use, and to get started for beginners. It is classified as a microframework because it does not require particular tools or libraries to work. It has no database abstraction layer, form validation, or any other components where pre-existing third-party libraries provide common functions.  
 In this section of the tutorial, you will learn how to set up a Flask project and to deploy a Machine Learning model you have developed in the [`previous chapter`](https://github.com/ahmadkhan242/Transfer-Learning-Model-hosted-on-Heroku-using-React-Flask/blob/main/README.md). By the end of this section you will be able to deploy any model using `Flask` on `Heroku`.
 
-> All code files for this project are availabe here - https://github.com/ahmadkhan242/Transfer-Learning-Model-hosted-on-Heroku-using-React-Flask/tree/main/Webapp/Flask
+> All code files for this project are availabe here - https://github.com/ahmadkhan242/Suicidal-post-detection/tree/main/Webapp/Flask
 
 ## Contents of this Section
 * [Pre-Requisites for the section](#prerequisite)
@@ -80,183 +79,10 @@ We define our pipeline script in **`predict.py`** file under **`ml_model`** fold
 Final pipeline is as follows - 
     **Data -> Pre-processing -> Model -> Prediction -> Final Result**  
 
-
 <p align="center">
   <img src="https://github.com/ahmadkhan242/Transfer-Learning-Model-hosted-on-Heroku-using-React-Flask/blob/main/Images/webapplicationFlowchartFinal.jpg" />
 </p>
 
-
-<details> 
-    <summary>Final code present here.</summary>
-    <h3 style="display:inline-block"><summary>All Code to be written in <u><i>ml_model/predict.py</i></u> fie. </summary></h3>
-    
-```python
-    # Importing Libraries
-    import re
-    import numpy as np
-    import pandas as pd
-    import torch
-    import torch.nn as nn
-    from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
-    import torch.nn.functional as F
-    from transformers import RobertaTokenizer, RobertaModel, AdamW, get_linear_schedule_with_warmup
-
-
-    import os
-    cwd = os.getcwd() 
-    
-    import pickle
-    b =  pickle.load(open(cwd + '\\ml_model\\vocab.pickle','rb'))
-    vocab = b['vocab']
-
-    # Defining pre-processing function
-    def text_preprocess(text):
-        text = str(text)
-        FLAGS = re.MULTILINE | re.DOTALL
-        eyes = r"[8:=;]"
-        nose = r"['`\-]?"
-
-        def re_sub(pattern, repl):
-            return re.sub(pattern, repl, text, flags=FLAGS)
-        text = re_sub(r"https?:\/\/\S+\b|www\.(\w+\.)+\S*", "<url>")
-        text = re_sub(r"/"," / ")
-        text = re_sub(r"@\w+", "<user>")
-        text = re_sub(r"{}{}[)dD]+|[)dD]+{}{}".format(eyes, nose, nose, eyes), "<smile>")
-        text = re_sub(r"{}{}p+".format(eyes, nose), "<lolface>")
-        text = re_sub(r"{}{}\(+|\)+{}{}".format(eyes, nose, nose, eyes), "<sadface>")
-        text = re_sub(r"{}{}[\/|l*]".format(eyes, nose), "<neutralface>")
-        text = re_sub(r"<3","<heart>")
-        text = re_sub(r"[-+]?[.\d]*[\d]+[:,.\d]*", "<number>")
-        text = re_sub(r"([!?.]){2,}", r"\1 <repeat>")
-        text = re_sub(r"\b(\S*?)(.)\2{2,}\b", r"\1\2 <elong>")
-        return text
-   
-    # Creating RoBERTa Model 
-    class ROBERTA(torch.nn.Module):
-        def __init__(self, dropout_rate=0.3):
-            super(ROBERTA, self).__init__()
-            self.roberta = RobertaModel.from_pretrained('roberta-base')
-            self.d1 = torch.nn.Dropout(dropout_rate)
-            self.l1 = torch.nn.Linear(768, 64)
-            self.bn1 = torch.nn.LayerNorm(64)
-            self.d2 = torch.nn.Dropout(dropout_rate)
-            self.l2 = torch.nn.Linear(64, 2)
-
-        def forward(self, input_ids, attention_mask):
-            _, x = self.roberta(input_ids=input_ids, attention_mask=attention_mask)
-            x = self.d1(x)
-            x = self.l1(x)
-            x = self.bn1(x)
-            x = torch.nn.Tanh()(x)
-            x = self.d2(x)
-            x = self.l2(x)
-            return x
-
-    # Initialising model and loading weights
-    model = ROBERTA()
-    state_dict = torch.load(cwd + '\\ml_model\\final_model.pth', map_location=torch.device('cpu'))
-    model.load_state_dict(state_dict, strict=False)
-
-    # Final function defining whole pipeline
-    def pred(text):
-        print("Text Received =>", text)
-        text = text_preprocess(text)
-        word_seq = np.array([vocab[word] for word in text.split() 
-                          if word in vocab.keys()])
-        word_seq = np.expand_dims(word_seq,axis=0)
-        t = torch.from_numpy(word_seq).to(torch.int64)
-        mask = (t != 1).type(torch.uint8)
-
-        output = model(t, attention_mask=mask)
-        print("Got output - ",output)
-        pro = torch.argmax(output, axis=-1).tolist()[0]
-        status = "positive" if pro == 1 else "negative"
-        return status  
-```
-    
-</details>
-
-
-1. **Getting data.**
-    * Data will be recieved in JSON format (we will disscus later about how to recieve data).
-    ```json 
-    {
-           "review": "Sample review"
-     }
-    ```
-2. **Pre-Processing**  
-    We pre-process the text by turning upper case alphabets to lower case, removing special characters, etc. We will use the function given below.
-    ```python
-    def text_preprocess(text):
-        text = str(text)
-        FLAGS = re.MULTILINE | re.DOTALL
-        eyes = r"[8:=;]"
-        nose = r"['`\-]?"
-
-        def re_sub(pattern, repl):
-            return re.sub(pattern, repl, text, flags=FLAGS)
-        text = re_sub(r"https?:\/\/\S+\b|www\.(\w+\.)+\S*", "<url>")
-        text = re_sub(r"/"," / ")
-        text = re_sub(r"@\w+", "<user>")
-        text = re_sub(r"{}{}[)dD]+|[)dD]+{}{}".format(eyes, nose, nose, eyes), "<smile>")
-        text = re_sub(r"{}{}p+".format(eyes, nose), "<lolface>")
-        text = re_sub(r"{}{}\(+|\)+{}{}".format(eyes, nose, nose, eyes), "<sadface>")
-        text = re_sub(r"{}{}[\/|l*]".format(eyes, nose), "<neutralface>")
-        text = re_sub(r"<3","<heart>")
-        text = re_sub(r"[-+]?[.\d]*[\d]+[:,.\d]*", "<number>")
-        text = re_sub(r"([!?.]){2,}", r"\1 <repeat>")
-        text = re_sub(r"\b(\S*?)(.)\2{2,}\b", r"\1\2 <elong>")
-        return text
-    ```
-3. **Defining Machine Learning Model and Loading weights.**
-    * For this problem we first define our Model architecture which is based on [`RoBERTa`](https://arxiv.org/abs/1907.11692) and then load pre-trained weights we saved in the [`previous chapter`](https://github.com/ahmadkhan242/Transfer-Learning-Model-hosted-on-Heroku-using-React-Flask/blob/main/README.md).
-    * `Important` Since we have saved the state file which stores only the parameters in dictoniary form not the complete model, so we need create the model again and load these values. 
-```python 
-    class ROBERTA(torch.nn.Module):
-        def __init__(self, dropout_rate=0.3):
-            super(ROBERTA, self).__init__()
-            self.roberta = RobertaModel.from_pretrained('roberta-base')
-            self.d1 = torch.nn.Dropout(dropout_rate)
-            self.l1 = torch.nn.Linear(768, 64)
-            self.bn1 = torch.nn.LayerNorm(64)
-            self.d2 = torch.nn.Dropout(dropout_rate)
-            self.l2 = torch.nn.Linear(64, 2)
-
-        def forward(self, input_ids, attention_mask):
-            _, x = self.roberta(input_ids=input_ids, attention_mask=attention_mask)
-            x = self.d1(x)
-            x = self.l1(x)
-            x = self.bn1(x)
-            x = torch.nn.Tanh()(x)
-            x = self.d2(x)
-            x = self.l2(x)
-            return x
-```
-   * After creating the RoBERTa model we load the weights we have saved in [`previous chapter`](https://github.com/ahmadkhan242/Transfer-Learning-Model-hosted-on-Heroku-using-React-Flask/blob/main/README.md) using these line of code.
-        * Learn more about saving and loading Model in Pytorch here - https://pytorch.org/tutorials/beginner/saving_loading_models.html
-```python
-    model = ROBERTA()
-    state_dict = torch.load(cwd + '\\ml_model\\final_model.pth', map_location=torch.device('cpu'))
-    model.load_state_dict(state_dict, strict=False)
-```
-    
-4. **Finally we wrap the whole pipeline in a single Function given below.**  
-    
-```python
-    def pred(text):
-        text = text_preprocess(text)                              # Preprocessing
-        word_seq = np.array([vocab[word] for word in text.split() # Creating Word Sequence
-                          if word in vocab.keys()])
-        word_seq = np.expand_dims(word_seq,axis=0)
-        t = torch.from_numpy(word_seq).to(torch.int64)            # Converting Numpy to torch tensor(int64)
-        mask = (t != 1).type(torch.uint8)
-        output = model(t, attention_mask=mask)
-        print("Got output - ",output)
-        pro = torch.argmax(output, axis=-1).tolist()[0]
-        status = "positive" if pro == 1 else "negative"
-        return status
-```
-    
 ## <a name="flask">Step 4 - Final Flask script.</a>
 This final script is to be written in `app.py` file. This file will handel all HTTP requests we are going to use.    
 In this file we will `import pred()` function we created in pipeline section then `import Flask` to create an app instance.
@@ -322,12 +148,6 @@ To run the Flask open terminal in the project directory and type following comma
 
 * Now we can test our API on `http://127.0.0.1:5000/` with `/predict` endpoint we have created in `app.py` file.
 * To test your final API you can use any API Client (Postman, Insomnia, etc).  
-We are using `Postman` as shown in screenshot, you can learn about it here - https://www.postman.com/
-<p align="center">
-    <kbd>
-  <img  src="https://github.com/ahmadkhan242/Transfer-Learning-Model-hosted-on-Heroku-using-React-Flask/blob/main/Images/heroku/postman.png">
-  </kbd>
-</p> 
 
 # <a name="deploy">Deployment on Heroku.</a>
 We expect you have GitHub account and the knowledge of how to create repository. If not, [learn here](https://guides.github.com/activities/hello-world/)
@@ -335,9 +155,7 @@ We expect you have GitHub account and the knowledge of how to create repository.
     ```bash
     web: gunicorn --bind 0.0.0.0:$PORT main_app:app
     ```
-> **IMPORTANT** In your requrement.txt file remove torch and touchvision, put these url instead.   
-    > https://download.pytorch.org/whl/cpu/torch-1.6.0%2Bcpu-cp37-cp37m-linux_x86_64.whl  
-    > https://download.pytorch.org/whl/cpu/torchvision-0.7.0%2Bcpu-cp37-cp37m-linux_x86_64.whl
+
 <details> 
 <summary>Explanation with Screenshot</summary>  
     
@@ -427,16 +245,10 @@ We expect you have GitHub account and the knowledge of how to create repository.
         </p>
     </details> 
     
-    
-***
-## <a name="summary">Summary and Conclusion</a>
-In this blog we have created a Flask app to deploy our RoBERTa model we have created in the [`previous chapter`](https://github.com/ahmadkhan242/Transfer-Learning-Model-hosted-on-Heroku-using-React-Flask/blob/main/README.md). You would have read setp by step process of creating flask app and how deploy it on `Heroku`. After this blog you can implement this blog for your project, you just need to change your pipeline based your machine learning model and them follow step by step tutorial written here.
-***
+   
 ### Refrence
 * https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3
 *** 
-<br>
- <h1 align="center"><a href="https://github.com/ahmadkhan242/Transfer-Learning-Model-hosted-on-Heroku-using-React-Flask/blob/main/Webapp/React/README.md">Chapter Three</a></h1>
- <h2 align="center">Building Frontend using React.</h2>
+
  
  
