@@ -1,0 +1,38 @@
+kind: run
+metadata:
+  name: train_model
+  uid: d1660d6c433446fc87f1209de32fdd55
+  iteration: 0
+  project: suicide-pred-ahmadkhan242
+  labels:
+    kind: ''
+    owner: ahmadkhan242
+    host: ahmadkhan242
+  annotations: {}
+spec:
+  function: suicide-pred-ahmadkhan242/train_model@8214f31880961604fb25b31bdd6c126bd3e92f67
+  log_level: info
+  parameters: {}
+  outputs: []
+  output_path: ./MLRun_data/Data
+  inputs:
+    input_ds: store://artifacts/suicide-pred-ahmadkhan242/transform_dataset_suicide_dataset_transformed:9af6b62e397b450297af8d3bd82597f5
+  hyperparams: {}
+  hyper_param_options: {}
+  data_stores: []
+status:
+  state: completed
+  results: {}
+  start_time: '2021-07-04T15:36:00.764298+00:00'
+  last_update: '2021-07-04T15:36:12.730059+00:00'
+  artifacts:
+  - key: Suicide_Model
+    kind: model
+    iter: 0
+    tree: d1660d6c433446fc87f1209de32fdd55
+    target_path: ./MLRun_data/Data/models/
+    hash: e70553803d5c99d65809d38895bb39839349454f
+    size: 16778151
+    db_key: train_model_Suicide_Model
+    model_file: Suicide_Model.pkl
+    framework: ''

@@ -1,0 +1,17 @@
+kind: ''
+metadata:
+  name: transform_dataset
+  tag: ''
+  project: suicide-pred-ahmadkhan242
+  categories: []
+  hash: de2aa9b19b7a2b60fdaef0fb07b97215c9a795f1
+  updated: 2021-07-04 18:22:25.705613+00:00
+spec:
+  command: /tmp/tmpaqamvdxs.py
+  args: []
+  image: ''
+  build:
+    commands: []
+  description: ''
+verbose: false
+status: null

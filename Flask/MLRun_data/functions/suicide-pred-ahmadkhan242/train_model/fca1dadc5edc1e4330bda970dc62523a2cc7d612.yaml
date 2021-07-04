@@ -1,0 +1,17 @@
+kind: ''
+metadata:
+  name: train_model
+  tag: ''
+  project: suicide-pred-ahmadkhan242
+  categories: []
+  hash: fca1dadc5edc1e4330bda970dc62523a2cc7d612
+  updated: 2021-07-04 15:39:33.599772+00:00
+spec:
+  command: /tmp/tmpl77lw_5m.py
+  args: []
+  image: ''
+  build:
+    commands: []
+  description: ''
+verbose: false
+status: null

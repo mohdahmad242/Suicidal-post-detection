@@ -1,0 +1,292 @@
+kind: run
+metadata:
+  name: transform_dataset
+  uid: df40137144aa4501bd9869268c06a67f
+  iteration: 0
+  project: suicide-pred-ahmadkhan242
+  labels:
+    kind: ''
+    owner: ahmadkhan242
+    host: ahmadkhan242
+  annotations: {}
+spec:
+  function: suicide-pred-ahmadkhan242/transform_dataset@68e874d9430c7c22a9218848005e56c0e49406ce
+  log_level: info
+  parameters: {}
+  outputs: []
+  output_path: ./MLRun_data/Data
+  inputs:
+    data: store://artifacts/suicide-pred-ahmadkhan242/suicide-fetch_data_suicide_dataset:e8391c2dfa604e33bb75d72e924ed816
+  hyperparams: {}
+  hyper_param_options: {}
+  data_stores: []
+status:
+  state: completed
+  results: {}
+  start_time: '2021-07-04T15:38:52.891413+00:00'
+  last_update: '2021-07-04T15:38:53.372286+00:00'
+  artifacts:
+  - key: suicide_dataset_transformed
+    kind: dataset
+    iter: 0
+    tree: df40137144aa4501bd9869268c06a67f
+    target_path: ./MLRun_data/Data/data/suicide_dataset_transformed.csv
+    format: csv
+    size: 3660630
+    db_key: transform_dataset_suicide_dataset_transformed
+    schema:
+      fields:
+      - name: index
+        type: integer
+      - name: index
+        type: integer
+      - name: label
+        type: integer
+      - name: tweet
+        type: string
+      primaryKey:
+      - index
+      pandas_version: 0.20.0
+    header:
+    - index
+    - label
+    - tweet
+    length: 9119
+    preview:
+    - - 0
+      - 1
+      - my life is meaningless i just want to end my life so badly my life is completely
+        empty and i dont want to have to create meaning in it creating meaning is
+        pain how long will i hold back the urge to run my car head first into the
+        next person coming the opposite way when will i stop feeling jealous of tragic
+        characters like gomer pile for the swift end they were able to bring to their
+        lives
+    - - 1
+      - 1
+      - 'muttering i wanna die to myself daily for a few months now i feel worthless
+        shes my soulmate i cant live in this horrible world without her i am so lonely
+        i wish i could just turn off the part of my brain that feels '
+    - - 2
+      - 1
+      - work slave i really feel like my only purpose in life is to make a higher
+        man money parents forcing me through college and i have too much on my plate
+        i owe a lot of money i know this is the easy way out but i am really tired
+        all of these issues are on top of dealing with tensions in america as well
+        i want to rest
+    - - 3
+      - 1
+      - i did something on the 2 of october i overdosed i just felt so alone and horrible
+        i was in hospital for two days now when i walk down the hallways of my school
+        they always look at me weird and say i should take more pills and i hate it
+        i have no one i have this voice in my head now and it wont go away and i cant
+        be myself anymore thanks for reading
+    - - 4
+      - 1
+      - i feel like no one cares i just want to die maybe then i d feel less lonely
+    - - 5
+      - 1
+      - i am great and wonderful i am worth it except not enough to be anyones first
+        choice everyone tells me how wonderful i am but not enough to be loved like
+        i love others i put aside everything for people but i am too crazy to hold
+        a job too nothing to be really loved i am not entitled and i dont even have
+        the right to die on my own terms and i am an asshole for being angry about
+        it for being upset that i am there when other people treat me like shit and
+        cant be bothered wheni amhurt
+    - - 6
+      - 1
+      - 'i ll be dead just you wait and see my last words before my death for whoever
+        is interestedi am sorry but youre better off without me youll learn to live
+        without me it wont be difficult now i shall die '
+    - - 7
+      - 1
+      - 'health anxiety prompting some bad thoughts in my head i have been struggling
+        for 2 months now with some health issues as a 26 year old male my pessimistic
+        nature just makes me think about the worst my hands and feet are currently
+        tingling and burning i just keep picturing myself on a wheelchair being a
+        burden to my family girlfriend and so on suicide thoughts come to my mind
+        as i prefer to put a sudden end to everything instead of deteriorating myself
+        day after day losing motor and cognitive functions life is already hard as
+        it is and now my health is failing for the first time '
+    - - 8
+      - 1
+      - 'everything is okay but nothing feels okay i ve always been a bit unhappy
+        as a kid too i think although i can t remember much of my childhood i dont
+        want to kill myself but sometimes that thought just comes creeping and it
+        scares me a little a few weeks ago a problem came up it was a financial problem
+        quite fixable but i just couldn t handle it i tied myself a noose and everything
+        i was gonna do it i was all alone in the house with my dog so there was really
+        no one that would be able to stop me i didnt do anything but i felt like i
+        could have done it completely on impulse over a fixable problem leaving behind
+        everything i love and my hopeful future i feel it now too creeping up on me
+        everything should be fine but i cant help the feeling that i should just do
+        it like everything would be easier for everyone if they would just realize
+        how little they need me '
+    - - 9
+      - 1
+      - 'ptsd and alcohol i had some extremely horrible violent stuff happen to me
+        a few years ago i was 21 nowi am26 i forgot about repressed it or whatever
+        for several years something unrelated one day made me remember everything
+        it all came flooding back into my mind and it was like i was reliving it all
+        and felt like i was having a never ending panic attack for about 4 days this
+        buried trauma explained a lot about why my alcohol pornography cigarette usages
+        were all insanely high to the point they fucked up my life and relationships
+        with people close to me in signifigant waysi amafraid to talk about what happened
+        to anyone even people i trust like my family or a potential therapist due
+        to extreme irrational paranoia about the people involved finding out and hurting
+        me again and sometimesi amjust completely consumed by negative horrible thoughts
+        and cant escape them i tried getting a sliding scale therapist a couple years
+        ago and even t and gave up on the idea of therapy i dont know what to do i
+        dont want to give up '
+    - - 10
+      - 1
+      - i dont have long left this past month has been the worst 3 weeks ago i went
+        on date with a guy and went to his place afterwards and he tried to force
+        me to go farther than i wanted to go ive been afraid to even hang out with
+        a guy since the next day i was fired from my job i spent the whole rest of
+        that week alone filling out job app which didnt help with my depression the
+        next week i started having some issues went to get tested and found i had
+        gotten gonorrhea from the guy that tried to force me i went to dinner at a
+        friends house and my car ended up getting towed so i owe my mom 150 for that
+        i almost attempted suicide that day last week and i started work last week
+        but will only be getting a partial paycheck because of when i started and
+        i amcurrently 75 for my bank account and behind on my bills so i dont know
+        how much this check is gonna help i just dont have any fight left in me anymore
+    - - 11
+      - 1
+      - i almost attempted suicide again when someone blackmailed me and threatened
+        to have me thrown in jail for something i didnt do he knew where i worked
+        and my parents names
+    - - 12
+      - 1
+      - i am 16 and hate myself so much i have very little friends an introvert never
+        had a girlfriend been bullied a lot and rejected a lot please help me i want
+        to kill myself it would make all this go away i dont deserve to be on this
+        earth since i write notes on paper of how worthless and stupid i am i want
+        to become someone in the it field but i am too stupid to get in there anyways
+        and jobs nowadays need social people and i am not one of them ive never had
+        a girlfriend before and i want to have one because being a virgin is a bad
+        thing and i could never live with that feeling if i dont have any friends
+        or a girlfriend wheni am an adult i plan on committing suicide can you please
+        help me thanks for reading
+    - - 13
+      - 1
+      - goodbye everybody abusive dad bullying being a wimp because i never had a
+        father figure in my childhood never getting to fuck the girls i wanted to
+        fuck never having a say in anything becausei am too weak to step up three
+        tours in iraq killed people who tried killing me saw those people kill my
+        friends lost both legs to a roadside i ed wanted to become a physician but
+        dreams are exactly that a fantasy and not something achievable spent 10 years
+        in prison after cops ransacked my home and found 5 grams of weed i grow tired
+        of wading through this hell every day ive been waiting for this moment for
+        a long time and i have a 9mm ready to get the job done quick and clean fuck
+        this place
+    - - 14
+      - 1
+      - i cant stop fucking upi amselfish gutless disrespectful spiteful rude self
+        righteous arrogant ignorantim forgetful unfelpful self centeredim stupid clutzy
+        lazy depressed constantly exhausted i havent filled out any of my college
+        applications because i didnt even plan on living this long i just want to
+        die so i can stop disgracing my family and inconveniencing my mom i kind of
+        want to be a ballistician they look at bullets from dead bodies to see what
+        gun it came out of but honestly i am more likely to be the subject of one
+        and i dont have any friends in or out of school why am i like this
+    - - 15
+      - 1
+      - i ve got exactly 23 days of life left and ive never felt so calm or at peace
+        id rather not wait till then but its the first day i will be completely alone
+        and have the time i need this
+    - - 16
+      - 1
+      - 'i hate my parents so much i want to kill myself to spite them especially
+        my dad i almost do not want to have children because i do not want my dad
+        to become a grandfather just like how he didnt want me to have a girlfriend
+        or friends growing up i dont think i would even goto his funeral if he died
+        i hate you from the bottom of my heart you only had me in order to chain down
+        my mom you hated and ignored yelled at me since i was a little boy and now
+        i hate you forever this hatred is killing me '
+    - - 17
+      - 1
+      - 'i cant live in this world ok its too much its too bad and too evil and i
+        cant handle it anymore theres so much more evil in the world than good almost
+        everyone is just apathetic about all the suffering in the world or people
+        actively contribute to it people harass hate and kill each other for no reason
+        people get killed by natural disasters and most people dont give a shit at
+        all they just think whatever better them than me and move on with their lives '
+    - - 18
+      - 1
+      - 'why is mankind afraid of death lately i am asking myself more often and often
+        why do we fear death nowdays back in the middle ages for example of course
+        you fear getting in hell and stupid shit like that but today even if it is
+        completly painless why would you struggle to just end it all i myself am not
+        suicidal i would say even if i think about it more than often to just quit
+        go the pussy but easy way why should i struggle with life instead of going
+        the easy route personally i think its because mankind fears the unkown we
+        dont know whats after death because none really came back from actual death
+        and reported about it like actual clinical dead but is is really the only
+        reason like i know i am not going to kill myself yet and it probably stays
+        that way because i am just too much of a pussy to be a pussy if you get what
+        i mean '
+    - - 19
+      - 1
+      - 'after failing once this is how i feel i wish that suicide was funded by the
+        government i wish guns for suicide would be like condoms given to teens so
+        if they are going to do it they do it right i wish euthansia was legal i wish
+        that i wouldnt have to fear buying poison or a gun off the black market because
+        if i get caught my life would get worse '
+    stats:
+      label:
+        count: 9119.0
+        mean: 0.4384252659282816
+        std: 0.496221275841099
+        min: 0.0
+        25%: 0.0
+        50%: 0.0
+        75%: 1.0
+        max: 1.0
+        hist:
+        - - 5121
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 3998
+        - - 0.0
+          - 0.05
+          - 0.1
+          - 0.15000000000000002
+          - 0.2
+          - 0.25
+          - 0.30000000000000004
+          - 0.35000000000000003
+          - 0.4
+          - 0.45
+          - 0.5
+          - 0.55
+          - 0.6000000000000001
+          - 0.65
+          - 0.7000000000000001
+          - 0.75
+          - 0.8
+          - 0.8500000000000001
+          - 0.9
+          - 0.9500000000000001
+          - 1.0
+      tweet:
+        count: 9119
+        unique: 8785
+        top: i dont want to die
+        freq: 165

@@ -1,9 +1,9 @@
 key: Suicide_Model
 kind: model
 iter: 0
-tree: 54bc5a62635042609881e2a2e2b99364
+tree: ec7d7bd53be046b48a2303b576449d3e
 target_path: ./MLRun_data/Data/models/
-hash: e70553803d5c99d65809d38895bb39839349454f
+hash: c1f06d3375a1c7d7c293e7a49ca8eca5a453598e
 size: 16778151
 db_key: train_model_Suicide_Model
 model_file: Suicide_Model.pkl
@@ -11,7 +11,7 @@ framework: ''
 producer:
   name: train_model
   kind: run
-  uri: suicide-pred-ahmadkhan242/54bc5a62635042609881e2a2e2b99364
+  uri: suicide-pred-ahmadkhan242/ec7d7bd53be046b48a2303b576449d3e
   owner: ahmadkhan242
 sources: []
 project: suicide-pred-ahmadkhan242

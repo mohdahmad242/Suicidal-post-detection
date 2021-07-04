@@ -1,0 +1,20 @@
+key: Suicide_Model
+kind: model
+iter: 0
+tree: 35e0d4f231a04d81a6496ee5a0da54a9
+target_path: ./MLRun_data/Data/models/
+hash: c1f06d3375a1c7d7c293e7a49ca8eca5a453598e
+size: 16778151
+db_key: train_model_Suicide_Model
+model_file: Suicide_Model.pkl
+framework: ''
+producer:
+  name: train_model
+  kind: run
+  uri: suicide-pred-ahmadkhan242/35e0d4f231a04d81a6496ee5a0da54a9
+  owner: ahmadkhan242
+sources:
+- name: input_ds
+  path: ./MLRun_data/Data/data/suicide_dataset_transformed.csv
+project: suicide-pred-ahmadkhan242
+updated: '2021-07-04T21:18:02.633229+00:00'

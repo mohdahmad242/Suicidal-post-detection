@@ -1,0 +1,17 @@
+kind: ''
+metadata:
+  name: suicide
+  tag: ''
+  project: suicide-pred-ahmadkhan242
+  categories: []
+  hash: d8b75e2d79318711004ad7ea879c585bd269bf58
+  updated: 2021-07-04 17:53:23.436643+00:00
+spec:
+  command: /tmp/tmpl2pvld75.py
+  args: []
+  image: ''
+  build:
+    commands: []
+  description: ''
+verbose: false
+status: null

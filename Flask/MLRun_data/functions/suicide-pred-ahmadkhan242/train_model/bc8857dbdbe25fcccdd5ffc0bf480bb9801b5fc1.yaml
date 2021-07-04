@@ -1,0 +1,17 @@
+kind: ''
+metadata:
+  name: train_model
+  tag: ''
+  project: suicide-pred-ahmadkhan242
+  categories: []
+  hash: bc8857dbdbe25fcccdd5ffc0bf480bb9801b5fc1
+  updated: 2021-07-04 17:53:35.124994+00:00
+spec:
+  command: /tmp/tmpzulevoi5.py
+  args: []
+  image: ''
+  build:
+    commands: []
+  description: ''
+verbose: false
+status: null

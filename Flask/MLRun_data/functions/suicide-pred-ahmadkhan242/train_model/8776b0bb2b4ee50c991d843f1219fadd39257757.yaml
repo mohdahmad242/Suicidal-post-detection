@@ -1,0 +1,17 @@
+kind: ''
+metadata:
+  name: train_model
+  tag: ''
+  project: suicide-pred-ahmadkhan242
+  categories: []
+  hash: 8776b0bb2b4ee50c991d843f1219fadd39257757
+  updated: 2021-07-04 18:14:23.860819+00:00
+spec:
+  command: /tmp/tmpd_nnyrvs.py
+  args: []
+  image: ''
+  build:
+    commands: []
+  description: ''
+verbose: false
+status: null

@@ -1,0 +1,17 @@
+kind: ''
+metadata:
+  name: suicide
+  tag: ''
+  project: suicide-pred-ahmadkhan242
+  categories: []
+  hash: 17c083fdad6b737cc2d93d5581d3c1bed848a56c
+  updated: 2021-07-04 18:22:19.752156+00:00
+spec:
+  command: /tmp/tmp5enuswin.py
+  args: []
+  image: ''
+  build:
+    commands: []
+  description: ''
+verbose: false
+status: null

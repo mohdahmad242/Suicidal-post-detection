@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/toxicity"></script>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron" style="margin-top: 30px;">
+            <h2>Suicidal post analysis on given sentence.</h2>
+            <div class="input-group mb-3 w-100 p-3" style="margin-top: 30px;" id="main">
+              
+                <form class="w-100 p-3" action="{{ url_for('home') }}" method="POST" >
+                    <label for="url" >Enter your post here </label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control w-100 p-3" id="url" name="url" placeholder="Post ....." aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Submit</button>
+                    </div>
+
+                </form>
+                <div id="pred">
+                    {% if(result["result"]):%}    
+                        <p>This post might be <span style="font-weight: bold;">{{result["result"]}}</span>.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="./assets/model.js"></script> -->
+</body>
+</html>

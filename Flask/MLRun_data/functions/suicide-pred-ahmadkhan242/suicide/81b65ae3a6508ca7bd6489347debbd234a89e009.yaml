@@ -1,0 +1,17 @@
+kind: ''
+metadata:
+  name: suicide
+  tag: ''
+  project: suicide-pred-ahmadkhan242
+  categories: []
+  hash: 81b65ae3a6508ca7bd6489347debbd234a89e009
+  updated: 2021-07-04 17:48:53.529988+00:00
+spec:
+  command: /tmp/tmpqlmugpmx.py
+  args: []
+  image: ''
+  build:
+    commands: []
+  description: ''
+verbose: false
+status: null

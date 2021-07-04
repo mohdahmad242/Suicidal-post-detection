@@ -36,7 +36,7 @@ from nltk.corpus import stopwords
 nltk.download('stopwords')
 stop = stopwords.words('english')
 
-
+cwd = os.getcwd()
 
 mlconf.dbpath = './MLRun_data'
 mlconf.artifact_path = './MLRun_data/Data'

@@ -1,0 +1,17 @@
+kind: ''
+metadata:
+  name: suicide
+  tag: ''
+  project: suicide-pred-ahmadkhan242
+  categories: []
+  hash: a51414819e3b6b5efb3ea955d042da15c189b87b
+  updated: 2021-07-04 21:01:23.146535+00:00
+spec:
+  command: /tmp/tmps616z10p.py
+  args: []
+  image: ''
+  build:
+    commands: []
+  description: ''
+verbose: false
+status: null
