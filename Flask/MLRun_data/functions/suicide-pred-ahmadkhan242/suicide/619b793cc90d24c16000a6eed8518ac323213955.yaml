@@ -1,0 +1,17 @@
+kind: ''
+metadata:
+  name: suicide
+  tag: ''
+  project: suicide-pred-ahmadkhan242
+  categories: []
+  hash: 619b793cc90d24c16000a6eed8518ac323213955
+  updated: 2021-07-05 17:07:02.924177+00:00
+spec:
+  command: /tmp/tmpes_fesu0.py
+  args: []
+  image: ''
+  build:
+    commands: []
+  description: ''
+verbose: false
+status: null

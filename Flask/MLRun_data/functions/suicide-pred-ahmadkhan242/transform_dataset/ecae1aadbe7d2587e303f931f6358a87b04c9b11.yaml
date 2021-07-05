@@ -1,0 +1,17 @@
+kind: ''
+metadata:
+  name: transform_dataset
+  tag: ''
+  project: suicide-pred-ahmadkhan242
+  categories: []
+  hash: ecae1aadbe7d2587e303f931f6358a87b04c9b11
+  updated: 2021-07-05 17:26:45.882479+00:00
+spec:
+  command: /tmp/tmpquyahcup.py
+  args: []
+  image: ''
+  build:
+    commands: []
+  description: ''
+verbose: false
+status: null

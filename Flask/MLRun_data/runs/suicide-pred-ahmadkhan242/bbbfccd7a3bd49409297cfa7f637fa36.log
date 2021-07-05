@@ -1,0 +1,5 @@
+> 2021-07-05 22:58:37,152 [info] Begin training
+Accuracy SGD: 0.907
+Accuracy Perceptron: 0.860
+> 2021-07-05 22:59:16,008 [info] Model Selected : SGD
+> 2021-07-05 22:59:16,009 [info] End training

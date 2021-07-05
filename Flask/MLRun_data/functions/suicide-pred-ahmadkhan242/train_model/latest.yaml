@@ -4,10 +4,10 @@ metadata:
   tag: ''
   project: suicide-pred-ahmadkhan242
   categories: []
-  hash: 59249f40471945f68f75709a44c170952d1c3e38
-  updated: 2021-07-04 21:31:54.971783+00:00
+  hash: 51cf83f9e4e144681dcdf2ba093fd7b843be283c
+  updated: 2021-07-05 17:28:30.359833+00:00
 spec:
-  command: /tmp/tmpsgfupn0e.py
+  command: /tmp/tmpo7ra1ke2.py
   args: []
   image: ''
   build:

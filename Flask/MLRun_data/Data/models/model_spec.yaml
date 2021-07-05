@@ -1,9 +1,9 @@
 key: Suicide_Model
 kind: model
 iter: 0
-tree: ec7d7bd53be046b48a2303b576449d3e
-target_path: ./MLRun_data/Data/models/
-hash: c1f06d3375a1c7d7c293e7a49ca8eca5a453598e
+tree: bbbfccd7a3bd49409297cfa7f637fa36
+target_path: /media/ahmadkhan242/A/MLRUn/Suicidal-post-detection/Flask/MLRun_data/Data/models/
+hash: 473e462e3c893a5d5b350fbbef0db5bc91c3c6e6
 size: 16778151
 db_key: train_model_Suicide_Model
 model_file: Suicide_Model.pkl
@@ -11,7 +11,7 @@ framework: ''
 producer:
   name: train_model
   kind: run
-  uri: suicide-pred-ahmadkhan242/ec7d7bd53be046b48a2303b576449d3e
+  uri: suicide-pred-ahmadkhan242/bbbfccd7a3bd49409297cfa7f637fa36
   owner: ahmadkhan242
 sources: []
 project: suicide-pred-ahmadkhan242
