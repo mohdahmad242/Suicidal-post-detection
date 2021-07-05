@@ -125,34 +125,58 @@ def transform_dataset(context : MLClientCtx, data: DataItem):
 
 
 def train_model(context: MLClientCtx, input_ds: DataItem):
-    context.logger.info('Begin training')
-    
-    clf = SGDClassifier(loss='log', random_state=1)
+  context.logger.info('Begin training')
+  from sklearn.linear_model import SGDClassifier
+  from sklearn.linear_model import Perceptron
 
-    df = input_ds.as_df()
-    X = df["tweet"].to_list()
-    y = df['label']
+  clf1 = SGDClassifier(loss='log', random_state=1)
+  clf2 = Perceptron(tol=1e-3, random_state=0)
 
-    
-    X_train,X_test,y_train,y_test = train_test_split(X,
-                                                    y,
-                                                    test_size=0.20,
-                                                    random_state=0)  
-    X_train = vect.transform(X_train)
-    X_test = vect.transform(X_test)
 
-    classes = np.array([0, 1])
-    clf.partial_fit(X_train, y_train,classes=classes)
+  df = input_ds.as_df()
+  X = df["tweet"].to_list()
+  y = df['label']
 
-    print('Accuracy: %.3f' % clf.score(X_test, y_test))
+  from sklearn.model_selection import train_test_split
+  X_train,X_test,y_train,y_test = train_test_split(X,
+                                                  y,
+                                                  test_size=0.20,
+                                                  random_state=0)  
+  X_train = vect.transform(X_train)
+  X_test = vect.transform(X_test)
 
+  classes = np.array([0, 1])
+  clf1.partial_fit(X_train, y_train,classes=classes)
+  clf2.partial_fit(X_train, y_train,classes=classes)
+
+  acc1 = clf1.score(X_test, y_test)
+  acc2 = clf2.score(X_test, y_test)
+
+  print('Accuracy SGD: %.3f' % acc1)
+  print('Accuracy Perceptron: %.3f' % acc2)
+
+  context.log_result("accuracyon SGD Model", acc1*100 )
+  context.log_result("accuracy on Perceptron Model", acc2*100 )
+  
+  
+  if acc1>=acc2:
     context.log_model('Suicide_Model',
-                        body=dumps(clf),
-                        artifact_path=context.artifact_subpath("models"),
-                        model_file="Suicide_Model.pkl")
+                      body=dumps(clf1),
+                      artifact_path=context.artifact_subpath("models"),
+                      model_file="Suicide_Model.pkl")
+    context.logger.info('Model Selected : SGD')  
+    
+
+  if acc1<acc2:
+    context.log_model('Suicide_Model',
+                      body=dumps(clf2),
+                      artifact_path=context.artifact_subpath("models"),
+                      model_file="Suicide_Model.pkl")
+    context.logger.info('Model Selected: Perceptron')
+    
 
 
-    context.logger.info('End training')
+  context.logger.info('End training')
 
 
 
