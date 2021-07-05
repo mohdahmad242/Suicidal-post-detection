@@ -1,7 +1,7 @@
 from ml_model.serving import pred, mlRunPipeline, bulktraining
 import os
 from flask import Flask, render_template, request, make_response, jsonify, send_file
-
+cwd = os.getcwd()
 
 app = Flask(__name__, template_folder='templates')
 
@@ -31,8 +31,8 @@ def upload_file():
 		file = request.files['file']
 		data = pd.read_csv(file)
 		print("DF - ",data.head())
-		data.to_csv("file_upload/bulkTrain.csv", index=False)
-		filepath = "file_upload/bulkTrain.csv"
+		data.to_csv(cwd +"file_upload/bulkTrain.csv", index=False)
+		filepath = cwd + "file_upload/bulkTrain.csv"
 		success = bulktraining(filepath)
 		return render_template('bulkTraining.html', result={"result": True})
 

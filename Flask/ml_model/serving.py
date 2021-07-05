@@ -28,7 +28,7 @@ serving = None
 
 def mlRunPipeline():
     global serving
-    suicide_func = mlrun.code_to_function(name='suicide', kind='job', filename = '/media/ahmadkhan242/A/MLRUn/Flask/ml_model/mlPipeline.py')
+    suicide_func = mlrun.code_to_function(name='suicide', kind='job', filename = cwd +'/ml_model/mlPipeline.py')
 
 
     fetch_data_run = suicide_func.run(handler='fetch_data',
@@ -52,7 +52,7 @@ def mlRunPipeline():
     print(train_model_run.outputs)
 
 
-    serving = mlrun.code_to_function('seving', filename='/media/ahmadkhan242/A/MLRUn/Flask/ml_model/mlPipeline.py', kind='serving')
+    serving = mlrun.code_to_function('seving', filename=cwd +'/ml_model/mlPipeline.py', kind='serving')
 
     serving.spec.default_class = 'SuicideModel'
     serving.add_model('suicide-serving', train_model_run.outputs['Suicide_Model'])
@@ -89,7 +89,7 @@ def pred(text):
     pred = server.test("/v2/models/suicide-serving/infer", body=text)
     status = "Suicidal" if pred['outputs'][0] == 1 else "Neutral "
 
-    data_dir = "ml_model/data"
+    data_dir = cwd + "/ml_model/data"
     if ('retrain.csv' in [f for f in listdir(data_dir) if isfile(join(data_dir, f))]):
         print("retrain.csv available for training")
         file = data_dir + "/retrain.csv"
@@ -97,7 +97,7 @@ def pred(text):
         if len(df) > 4:
             updateDatabase(file)
             df = pd.DataFrame(columns=["label", "tweet"])
-            df.to_csv("ml_model/data/retrain.csv", index=False)
+            df.to_csv(cwd + "/ml_model/data/retrain.csv", index=False)
             mlRunPipeline()
         else:
             print(df)
@@ -108,7 +108,7 @@ def pred(text):
             
             df = df.append(data, ignore_index=True)
             print("change", data, df)
-            df.to_csv("ml_model/data/retrain.csv", index=False)
+            df.to_csv(cwd + "/ml_model/data/retrain.csv", index=False)
 
     else:
         data = {
@@ -116,21 +116,12 @@ def pred(text):
                 "tweet": [input_text]
             }
         df = pd.DataFrame(data)
-        df.to_csv("ml_model/data/retrain.csv", index=False)
+        df.to_csv(cwd + "/ml_model/data/retrain.csv", index=False)
 
     return status
 
-
-# import flask
-# from flask import Flask, render_template, request, make_response, jsonify
-# from werkzeug.utils import secure_filena
-
-# app = flask.Flask(__name__, template_folder='templates')
-# UPLOAD_FOLDER = 'file_upload'
-# app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-
 def bulktraining(file):
+    
     updateDatabase(file)
     mlRunPipeline()
 

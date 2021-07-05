@@ -38,8 +38,8 @@ stop = stopwords.words('english')
 
 cwd = os.getcwd()
 
-mlconf.dbpath = './MLRun_data'
-mlconf.artifact_path = './MLRun_data/Data'
+mlconf.dbpath = cwd + '/MLRun_data'
+mlconf.artifact_path = cwd + '/MLRun_data/Data'
 
 
 project_name_base = 'suicide-pred'
@@ -194,7 +194,6 @@ class SuicideModel(mlrun.serving.V2ModelServer):
             l = []
             l.append(feats)
             feats = vect.transform(l)
-            print('hi')
             result = self.model.predict(feats)
             return result.tolist()
         except Exception as e:
