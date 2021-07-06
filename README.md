@@ -71,8 +71,23 @@ After pre-processing and model training , best model was selected by the pipelin
 ### 🛠Model retraining.  
 This one of the main features of our pipeline. We integrated **`retraining`** of our models using two different processes-
 1. Inference time data: We collected the data produce during inference time, we stored the input data and predicted labels on our server in `CSV file. Once the data reaches a limit of 1000 samples. Our pipeline pushes the dataset to `MongoBD atlas` on the cloud and begins the retraining process, discussed earlier.
-2. Bulk training: We also integrated bulk training in our pipeline. When we collect datasets from other sources in bulk, we can use `/bulktraining` API. We can pass the CSV file, our pipeline will store the dataset on the cloud and begin the retraining process, discussed earlier.
+2. Bulk training: We also integrated bulk training in our pipeline. When we collect datasets from other sources in bulk, we can use `/bulktraining` API. We can pass the CSV file, our pipeline will store the dataset on the cloud and begin the retraining process, discussed earlier.  
+### 🛠 Iguazio Data Science platform
+We were fortunate to get access of Iguazio platform to demostrate our project. We deployed and ran our pipeline on Iguazio Data science platform. Below are some of the screenshot which demontrate artifacts, result and logs produce during training.
+     <p align="center">
+ <a href="https://imdbmovienew.herokuapp.com/"><img src="https://github.com/ahmadkhan242/Suicidal-post-detection/blob/main/images/iguazio.png?raw=true" style="width: auto; max-width: 100%; height: auto" title="Web Application" /></a>
+</p> 
+ <p align="center">
+ <a href="https://imdbmovienew.herokuapp.com/"><img src="https://github.com/ahmadkhan242/Suicidal-post-detection/blob/main/images/trainArtifacts.png?raw=true" style="width: auto; max-width: 100%; height: auto" title="Web Application" /></a>
+</p> 
+ <p align="center">
+ <a href="https://imdbmovienew.herokuapp.com/"><img src="https://github.com/ahmadkhan242/Suicidal-post-detection/blob/main/images/trainResults.png?raw=true" style="width: auto; max-width: 100%; height: auto" title="Web Application" /></a>
+</p> 
+ <p align="center">
+ <a href="https://imdbmovienew.herokuapp.com/"><img src="https://github.com/ahmadkhan242/Suicidal-post-detection/blob/main/images/trainLogs.png?raw=true" style="width: auto; max-width: 100%; height: auto" title="Web Application" /></a>
+</p> 
     
+
 ## 🔥Accomplishments that we're proud of
 * This project can help in **`Early detection`** of suicidal thoughts which is one of the ways for suicide prevention
 * Our project demonstrates a robust pipeline that is automated with help of `mlrun` library.
