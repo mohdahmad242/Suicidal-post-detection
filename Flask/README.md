@@ -26,7 +26,7 @@
 
 ## Introduction
 Flask is a lightweight web framework written in Python. Flask is easy to use, and to get started for beginners. It is classified as a microframework because it does not require particular tools or libraries to work. It has no database abstraction layer, form validation, or any other components where pre-existing third-party libraries provide common functions.  
-In this section of the tutorial, you will learn how to set up a Flask project and to deploy a Machine Learning model you have developed in the [`previous chapter`](https://github.com/ahmadkhan242/Transfer-Learning-Model-hosted-on-Heroku-using-React-Flask/blob/main/README.md). By the end of this section you will be able to deploy any model using `Flask` on `Heroku`.
+By the end of this section you will be able to deploy any model using `Flask` on `Heroku`.
 
 > All code files for this project are availabe here - https://github.com/ahmadkhan242/Suicidal-post-detection/tree/main/Flask
 
@@ -124,12 +124,12 @@ We will use this instance to handle HTTP request. First we will define a route d
 Since, we will be receiving our text data on this route, here we will pass method as `POST`.  
 Learn about basics of newtorking if you don't know [Learn Here](https://www.toolsqa.com/rest-assured/rest-routes/)
 ```python
-    @app.route('/predict', methods=['POST'])
+    @app.route('/', methods=['POST'])
 ```
-Now, we will define a fuction which will be executed when someone make POST request on `/predict` route. In this function we will take our POST route data and pass to the `pred()` function we imported from **`ml_model/predict.py`** file.
+Now, we will define a fuction which will be executed when someone make POST request on `/` route. In this function we will take our POST route data and pass to the `pred()` function we imported from **`ml_model/predict.py`** file.
 ```python
     def home():
-        review = request.json['review']
+        review = request.json['text']
         prediction = pred(review)
         print(prediction)
         return prediction
