@@ -1,5 +1,5 @@
 # Suicidal post detection
-[Deployed on Heroku]()
+[Deployed on Heroku](https://spdetection.herokuapp.com/)
 *** 
 ## Structure
 ``` bash
@@ -103,7 +103,7 @@ This project is not limited to only Suicide post prediction, in this new age soc
 ```
 - For WebApp
 ```
-> cd WebApp
+> cd Flask
 > flask run
 ```
 > Website Live at `http://127.0.0.1:5000/`.  
