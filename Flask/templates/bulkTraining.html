@@ -18,13 +18,13 @@
                     <label for="url" >Enter your file here </label>
 
                     <div class="input-group" >
-                        <input type="file" class="form-control" id="data_file" name="data_file" placeholder="Upload CSV ....." aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                        <input style="margin-right: 10px;" type="file" class="form-control" id="data_file" name="data_file" placeholder="Upload CSV ....." aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                         <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Submit</button>
                     </div>
                 </form>
                 <div id="pred">
                     {% if(result["result"]):%}    
-                        <p>This post might be <span style="font-weight: bold;">Training is completed</span>.</p>
+                        <p><span style="font-weight: bold;">Training is completed</span>.</p>
                     {% endif %}
                 </div>
             </div>

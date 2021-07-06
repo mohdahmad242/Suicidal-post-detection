@@ -16,6 +16,7 @@ def home():
 		review = request.form['url']
 		prediction = pred(review)
 		prediction = {
+            "text": review,
 			'result': prediction
 		}
 		return render_template('main.html', result=prediction)
@@ -25,7 +26,6 @@ def home():
 def upload_file():
 	if request.method == 'GET':
 		return render_template('bulkTraining.html', result={"result": False})
-
 
 	if request.method == 'POST':
 		file = request.files['data_file']

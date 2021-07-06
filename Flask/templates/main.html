@@ -11,24 +11,63 @@
 <body>
     <div class="container">
         <div class="jumbotron" style="margin-top: 30px;">
-            <h2>Suicidal post analysis on given sentence.</h2>
+            <h2>Suicidal post analysis on given sentence. <span class="badge bg-dark"><a href="https://github.com/ahmadkhan242/Suicidal-post-detection" style="color:white">GitHub repo</a></span></h2>
             <div class="input-group mb-3 w-100 p-3" style="margin-top: 30px;" id="main">
               
                 <form class="w-100 p-3" action="{{ url_for('home') }}" method="POST" >
                     <label for="url" >Enter your post here </label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control w-100 p-3" id="url" name="url" placeholder="Post ....." aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Submit</button>
+                        <input style="margin-right: 10px;" type="text" class="form-control w-100 p-3" id="url" name="url" placeholder="Post ....." aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary primary" type="submit" id="button-addon2">Submit</button>
                     </div>
 
                 </form>
                 <div id="pred">
                     {% if(result["result"]):%}    
+                        <p>
+                            {{result["text"]}}
+                        </p>
                         <p>This post might be <span style="font-weight: bold;">{{result["result"]}}</span>.</p>
                     {% endif %}
                 </div>
             </div>
         </div>
+        <div class="jumbotron" style="margin-top: 30px;">
+            <h2>Examples - </h2>
+            <div class="card">
+                <div class="card-body">
+                    Is it considered suicide i have a friend who is really depressed she has a genetic disease that is basically a ticking time bomb 
+                    she just wants to let the disease the course because she doesnt have the heart to do it herself ive been trying to talk her into 
+                    going back to the doctor and trying to manage her disease 
+                    but she wont listen i want to help her she has three kids and shes basically setting herself up to die sooner
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    why is that when you have time off from work you get sick 
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    i know what is after life and i want it i had an nde in 2009 after an atv accident and i remember the afterlife 
+                it was so beautiful no pain complete and utter peacefor lack of a better termmy life is similar to a vacation where you are 
+                staying at an acquaintance s house and they tell you make yourself at home but you re still a bit uneasy and you still tip toe 
+                around because you know you can t get too comfortable and no matter how many accommodations they can provide you know that it is not 
+                your home it never will be i will be going back home this friday the 
+                22nd i already have a place timeand plan thank you all for your encouraging words and supportr
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    can t sleep again face is kinda swollen don t let me be allergic to the thing that ll get me to thursday school 
+                tomorrow doubtful 
+                </div>
+            </div>
+
+            </div>
+        </div>
     </div>
+        
+    <!-- <script src="./assets/model.js"></script> -->
 </body>
 </html>
