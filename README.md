@@ -6,7 +6,6 @@
 ─── Suicidal post detection.  
     ├── Notebook  
         ├── mlrun_pipeline.ipyub (experiment log included)
-        ├── flair_dataset.csv
     ├── WebApp  
     ├── requirement.txt  
 ```
@@ -26,7 +25,8 @@ We used `mlrun` to automate our pipeline. We first fetch dataset from MongoDB At
 We also deployed it on `Heroku` to display the `applicability` of the API. Our pipeline is fully automated and robust to data accusation, when someone use our API, it store each instance in CSV file on the server and once it reached a limit, the pipeline automatically push the data to MongoDB database and retrain the models. Also, choose the best model out of two for severing, so basically we are doing Semi-Supervise learning to make our model better.
 ### Pipeline workflow
 For the pileline automation and tracking of logs, we used an open sourced **`mlrun`** library which give us the flexibility to create Machine learning pipeline, manage the pipeline logs, and deploy it in production environment.   
-The features we laveraged from this library are automates data fetching and prepration, model training and testing, deployment of real-time production pipelines, and end-to-end monitoring using heroku server logs. Image below depicts our `MLRun pipeline workflow`
+The features we laveraged from this library are automates data fetching and prepration, model training and testing, deployment of real-time production pipelines, and end-to-end monitoring using heroku server logs.  
+Image below depicts our `MLRun pipeline workflow`
 
 <p align="center">
  <a href="https://imdbmovienew.herokuapp.com/"><img src="https://github.com/ahmadkhan242/Suicidal-post-detection/blob/main/images/WorkFlow.png" style="width: auto; max-width: 100%; height: auto" title="Web Application" /></a>
@@ -44,7 +44,11 @@ The process of pre-processing is added to tranform function of the pipeline, we 
 ### Model training and evaluation.
 In this pipeline we training our data on different models
 1. SCD classifier
-2. Preceptor model  
+2. Preceptor model
+  <p align="center">
+ <a href="https://imdbmovienew.herokuapp.com/"><img src="https://github.com/ahmadkhan242/Suicidal-post-detection/blob/main/images/modelFlow.png" style="width: auto; max-width: 100%; height: auto" title="Web Application" /></a>
+</p> 
+
 The dataset is trained on both model, then after evaluation the accuracy is compared in the pipeline. And the best model is saved and used for serving with the help of `mlrun`.  
 The logs of the model training were tracked bu `mlrun` for both model. Here also we took advantage of the mlrun's `PlotArtifacts` API to plot the accuracies of the model. Below is the example of log.  
 
@@ -53,6 +57,7 @@ The logs of the model training were tracked bu `mlrun` for both model. Here also
 </p> 
 
 ### Model serving.  
+After pre-processing and model training , best model was selected by the pipeline and used for inference. With help of `mlrun` with serve our model for testing. Example is dmonstrated below.
 <p align="center">
  <a href="https://imdbmovienew.herokuapp.com/"><img src="https://github.com/ahmadkhan242/Suicidal-post-detection/blob/main/images/serving.png" style="width: auto; max-width: 100%; height: auto" title="Web Application" /></a>
     
@@ -78,7 +83,7 @@ This project is not limited to only Suicide post prediction, in this new age soc
 - Clone the repository using `git clone` and then change the directory to root of the project
 ``` 
     git clone https://github.com/ahmadkhan242/Suicidal-post-detection.git
-    cd Reddit-flair-detection
+    cd Suicidal-post-detection
 ```
 - Create a virtual Environament, activate it and install requirement.txt file
 ```
