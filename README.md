@@ -9,6 +9,7 @@
     ├── WebApp  
     ├── requirement.txt  
 ```
+> All code and Jupyter notebook used in this project availabe here in this repository
 ## Overview 
 ## Inspiration
 Suicide might be considered as one of the most serious social health problems in the modern society. Every year, almost 800,000 people commit suicide. Suicide remains the second leading cause of death among a young generation with an overall suicide rate of 10.5 per 100,000 people. Specially in this pandemic suicide rate has increased. Many factors can lead to suicide, for example, personal issues, such as hopelessness, severe anxiety, or impulsivity; social factors, like social isolation and overexposure to deaths; or negative life events, and previous suicide attempts, etc. Millions of peoples around the world fall victims to suicide every year, making suicide prevention become a critical global public health mission.
