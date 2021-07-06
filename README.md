@@ -35,7 +35,7 @@ The features we laveraged from this library are automates data fetching and prep
 
 We successfully implemented the following process with help of **`mlrun`**.  
 ### Fetching data.   
-    Data are stored in MongoDB atlas on cloud databse. When the mlrun pipeline is executed the fetch function will download the suicide dataset from MongoDB atlas database, convert it into DataFrame and serve it for data transformation.  
+Data are stored in MongoDB atlas on cloud databse. When the mlrun pipeline is executed the fetch function will download the suicide dataset from MongoDB atlas database, convert it into DataFrame and serve it for data transformation.  
     <p align="center">
  <a href="https://imdbmovienew.herokuapp.com/"><img src="https://github.com/ahmadkhan242/Suicidal-post-detection/blob/main/images/fetchData.png" style="width: auto; max-width: 100%; height: auto" title="Web Application" /></a>
 </p> 
@@ -45,7 +45,7 @@ The process of pre-processing is added to tranform function of the pipeline, we 
 ### Model training and evaluation.
 In this pipeline we training our data on different models
 1. SCD classifier
-2. Preceptor model
+2. Preceptor model  
 The dataset is trained on both model, then after evaluation the accuracy is compared in the pipeline. And the best model is saved and used for serving with the help of `mlrun`.  
 The logs of the model training were tracked bu `mlrun` for both model. Here also we took advantage of the mlrun's `PlotArtifacts` API to plot the accuracies of the model. Below is the example of log.  
 
@@ -58,14 +58,16 @@ The logs of the model training were tracked bu `mlrun` for both model. Here also
  <a href="https://imdbmovienew.herokuapp.com/"><img src="https://github.com/ahmadkhan242/Suicidal-post-detection/blob/main/images/serving.png" style="width: auto; max-width: 100%; height: auto" title="Web Application" /></a>
     
 ### Model retraining.  
-<p align="center">
- <a href="https://imdbmovienew.herokuapp.com/"><img src="https://github.com/ahmadkhan242/Suicidal-post-detection/blob/main/images/serving.png" style="width: auto; max-width: 100%; height: auto" title="Web Application" /></a>
+This one of the main feature of our pipeline. We integrated **`retraining`** of our models using two different processe-
+1. Inference time data: We collected the data produce during inference time, we stored the input data and predicted label on our server in `csv` file. Once the data reaches to a limit of 1000 samples. Our pipeline push the dataset to `MongoBD atlas` on cloud and begin the retraining process, discussed earlier.
+2. Bulk training: We also integrated bulk training in our pipeline. When we collect dataset from other sources in bulk, we can use `/bulktraining` API. We can pass csv file, our pipeline will store the dataset on cloud and begin the retraining process, discussed earlier.
     
 ## Accomplishments that we're proud of
 * Our project demonstrate a robust pipeline which is automated with help of `mlrun` library.
-* Our project has multiple independent steps for data acquisition from `MongoDB Atlas` database, pre-processing , and training of the model.
+* Our project has multiple independent steps for data acquisition from **`MongoDB Atlas`** database, pre-processing , and training of the model.
 * We also include multiple models in our project for training so as to get better model for serving.
 * For data acquisition, we included a functionalists in our pipeline to retrain the model once a certain amount of data is collected.
+* We incoporated **bulk training facility** in our pipeline.
 * Our pipeline is deployed on `Heroku` in real time with help of `Flask` and `mlrun` library.
 * We included our notebook which will help other to convert their project into `MLRUN` pipeline.
 * We also include all code and documentation on Github on how to deploy the pipeline on Heroku.
