@@ -1,6 +1,5 @@
 # Suicidal post detection
 [Deployed on Heroku]()
-> This a project on suicidal post detection
 *** 
 ## Structure
 ``` bash
