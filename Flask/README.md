@@ -28,7 +28,7 @@
 Flask is a lightweight web framework written in Python. Flask is easy to use, and to get started for beginners. It is classified as a microframework because it does not require particular tools or libraries to work. It has no database abstraction layer, form validation, or any other components where pre-existing third-party libraries provide common functions.  
 In this section of the tutorial, you will learn how to set up a Flask project and to deploy a Machine Learning model you have developed in the [`previous chapter`](https://github.com/ahmadkhan242/Transfer-Learning-Model-hosted-on-Heroku-using-React-Flask/blob/main/README.md). By the end of this section you will be able to deploy any model using `Flask` on `Heroku`.
 
-> All code files for this project are availabe here - https://github.com/ahmadkhan242/Suicidal-post-detection/tree/main/Webapp/Flask
+> All code files for this project are availabe here - https://github.com/ahmadkhan242/Suicidal-post-detection/tree/main/Flask
 
 ## Contents of this Section
 * [Pre-Requisites for the section](#prerequisite)
@@ -68,19 +68,20 @@ We need to have a file structure for best practice.
 ```js
 ─── Flask
     ├── ml_model
-    │    ├── modelFinal.pth ------- (Final saved model)
-    │    ├── predict.py ----------- (Python script to create pipeline)
-    │    └── vocab.pickel --------- (Contain English vocab used to create word sequence)
+    │    ├── mlPipeline.py ------- (File where we define our MLRun pipeline)
+    │    └── serving.py ----------- (File where we serve our pipeline for tranfomation, training, and testing)
+    ├── file_upload (Folder where bulk CSV file stored)
+    ├── templates (Folder with all html files)
     └── app.py -------------------- (Main Flask File)
 ```
 
 ## <a name="pred">Step 3 - Creating prediction pipeline.</a>
-We define our pipeline script in **`predict.py`** file under **`ml_model`** folder.  
+We define our pipeline script in **`mlPipeline.py`** file under **`ml_model`** folder.  
 Final pipeline is as follows - 
     **Data -> Pre-processing -> Model -> Prediction -> Final Result**  
 
 <p align="center">
-  <img src="https://github.com/ahmadkhan242/Transfer-Learning-Model-hosted-on-Heroku-using-React-Flask/blob/main/Images/webapplicationFlowchartFinal.jpg" />
+  <img src="https://github.com/ahmadkhan242/Suicidal-post-detection/blob/main/images/mlRunFlow.png" />
 </p>
 
 ## <a name="flask">Step 4 - Final Flask script.</a>
