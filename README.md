@@ -24,6 +24,9 @@ We also deployed our model on **Heroku** using **Flask** and **mlrun** alongwith
 We took a tweet dataset published on this  [Github repository](https://github.com/AminuIsrael/Predicting-Suicide-Ideation). We trained our model on two different models SGD classifier and the simple preceptor model. 
 We used `mlrun` to automate our pipeline. We first fetch the dataset from the MongoDB Atlas database, pre-process it, and trained two models discussed earlier, and finally, the best model is used for serving.   
 We also deployed it on `Heroku` to display the `applicability` of the API. Our pipeline is fully automated and robust to data accusation when someone uses our API, it stores each instance in a CSV file on the server and once it reached a limit, the pipeline automatically pushes the data to the MongoDB database and retrain the models. Also, choose the best model out of two for severing, so basically we are doing Semi-Supervise learning to make our model better.
+### Data we used
+We used data of the posts by the people posting suicidal and normal tweets. This data is kept on MongoDB Atlas. label '1' from dataset represents suicidal and label '0' as neutral. 
+
 ### Pipeline workflow
 For the pipeline automation and tracking of logs, we used an open-sourced **`mlrun`** library which gives us the flexibility to create a Machine learning pipeline, manage the pipeline logs, and deploy it in a production environment.   
 The features we leveraged from this library are automated data fetching and preparation, model training and testing, deployment of real-time production pipelines, and end-to-end monitoring using Heroku server logs.  
