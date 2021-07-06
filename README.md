@@ -28,9 +28,10 @@ We also deployed it on `Heroku` to display the `applicability` of the API. Our p
 For the pipeline automation and tracking of logs, we used an open-sourced **`mlrun`** library which gives us the flexibility to create a Machine learning pipeline, manage the pipeline logs, and deploy it in a production environment.   
 The features we leveraged from this library are automated data fetching and preparation, model training and testing, deployment of real-time production pipelines, and end-to-end monitoring using Heroku server logs.  
 The image below depicts our `MLRun pipeline workflow`
-<p align="center">
+![](https://github.com/ahmadkhan242/Suicidal-post-detection/blob/main/images/WorkFlow.png)
+<!-- <p align="center">
 <img src="https://github.com/ahmadkhan242/Suicidal-post-detection/blob/main/images/WorkFlow.png" style="width: auto; max-width: 100%; height: auto" title="Web Application" />
-</p> 
+</p>  -->
 
 We successfully implemented the following process with help of **`mlrun`**.  
 ### ⚙️ Fetching data.   
