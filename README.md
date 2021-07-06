@@ -10,20 +10,20 @@
     ├── requirement.txt  
 ```
 ## Overview 
-## Inspiration
+🤓## Inspiration
 Suicide might be considered as one of the most serious social health problems in the modern society. Every year, almost 800,000 people commit suicide. Suicide remains the second leading cause of death among a young generation with an overall suicide rate of 10.5 per 100,000 people. Specially in this pandemic suicide rate has increased. Many factors can lead to suicide, for example, personal issues, such as hopelessness, severe anxiety, or impulsivity; social factors, like social isolation and overexposure to deaths; or negative life events, and previous suicide attempts, etc. Millions of peoples around the world fall victims to suicide every year, making suicide prevention become a critical global public health mission.
 
-## What it does
+🖥## What it does
 Early detection and treatment are regarded as the most effective ways to prevent suicidal ideation and potential suicide attempts—two critical risk factors resulting in successful suicides.   
 In this project we propose an API which can be used to tag any textual data with a potential suicidal thought tag or neutral tag. 
 We used supervised Machine learning to train our model which can detect Suicidal severity of the post.  
 We also deployed our model on **Heroku** using **Flask** and **mlrun** alongwith **MongoDB Atlas** to demonstrate the **`applicability`** of the project.
 
-## How we built it
+🔧## How we built it
 We took tweet dataset published on this  [Github repository](https://github.com/AminuIsrael/Predicting-Suicide-Ideation). We trained our model on two different model SGD classifier and simple preceptor model. 
 We used `mlrun` to automate our pipeline. We first fetch dataset from MongoDB Atlas database, pre-process it, and trained two model discussed earlier, and finally best model is used for serving.   
 We also deployed it on `Heroku` to display the `applicability` of the API. Our pipeline is fully automated and robust to data accusation, when someone use our API, it store each instance in CSV file on the server and once it reached a limit, the pipeline automatically push the data to MongoDB database and retrain the models. Also, choose the best model out of two for severing, so basically we are doing Semi-Supervise learning to make our model better.
-### Pipeline workflow
+⛓### Pipeline workflow
 For the pileline automation and tracking of logs, we used an open sourced **`mlrun`** library which give us the flexibility to create Machine learning pipeline, manage the pipeline logs, and deploy it in production environment.   
 The features we laveraged from this library are automates data fetching and prepration, model training and testing, deployment of real-time production pipelines, and end-to-end monitoring using heroku server logs.  
 Image below depicts our `MLRun pipeline workflow`
@@ -33,7 +33,7 @@ Image below depicts our `MLRun pipeline workflow`
 </p> 
 
 We successfully implemented the following process with help of **`mlrun`**.  
-### Fetching data.   
+⚙️### Fetching data.   
 Data are stored in MongoDB atlas on cloud databse. When the mlrun pipeline is executed the fetch function will download the suicide dataset from MongoDB atlas database, convert it into DataFrame and serve it for data transformation.  
     <p align="center">
  <a href="https://imdbmovienew.herokuapp.com/"><img src="https://github.com/ahmadkhan242/Suicidal-post-detection/blob/main/images/fetchData.png" style="width: auto; max-width: 100%; height: auto" title="Web Application" /></a>
