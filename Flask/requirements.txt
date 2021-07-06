@@ -28,3 +28,4 @@ tqdm==4.43.0
 virtualenv==20.0.18
 Werkzeug==0.16.0
 wordcloud==1.6.0
+joblib
