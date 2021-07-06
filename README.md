@@ -40,7 +40,11 @@ Data are stored in MongoDB atlas on cloud databse. When the mlrun pipeline is ex
 </p> 
 
 ### Transformation of data.  
-The process of pre-processing is added to tranform function of the pipeline, we took advantage of the mlrun's `PlotArtifacts` API to plot some insight of the dataset. Finally the function pre-process our dataset and serve it for model training.   
+The process of pre-processing is added to tranform function of the pipeline, we took advantage of the mlrun's `PlotArtifacts` API to plot some insight of the dataset. Finally the function pre-process our dataset and serve it for model training. 
+<p align="center">
+ <a href="https://imdbmovienew.herokuapp.com/"><img src="https://github.com/ahmadkhan242/Suicidal-post-detection/blob/main/images/transformData.png" style="width: auto; max-width: 100%; height: auto" title="Web Application" /></a>
+</p> 
+
 ### Model training and evaluation.
 In this pipeline we training our data on different models
 1. SCD classifier
@@ -78,7 +82,7 @@ This one of the main feature of our pipeline. We integrated **`retraining`** of 
 * We also include all code and documentation on Github on how to deploy the pipeline on Heroku.
 
 ## What's next for Suicide predictions 
-We plane to incorporate a few more classification classes so as to get more information out of the text, which will help in better prediction of the suicidal severity.
+We plane to incorporate a few more classification classes so as to get more information out of the text, which will help in better prediction of the suicidal severity. We also planned to create a Qn/A chatbot, which will be helpful for people dealing with suicidal thoughs.    
 This project is not limited to only Suicide post prediction, in this new age social media world, textual data is being generated every second. These data can be leveraged in many ways, like deep sentiment analysis, health care related problems can be solved, hate and toxicity of the post can be detected to stop bullying, etc. 
 
 ## Installation and Execution.
