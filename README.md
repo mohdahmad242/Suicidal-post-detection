@@ -43,7 +43,7 @@ Data are stored in MongoDB atlas on cloud databse. When the mlrun pipeline is ex
 The process of pre-processing is added to tranform function of the pipeline, we took advantage of the mlrun's `PlotArtifacts` API to plot some insight of the dataset. Finally the function pre-process our dataset and serve it for model training.   
 ### Model training and evaluation.
 In this pipeline we training our data on different models
-1. SGD classifier
+1. SCD classifier
 2. Preceptor model
   <p align="center">
  <a href="https://imdbmovienew.herokuapp.com/"><img src="https://github.com/ahmadkhan242/Suicidal-post-detection/blob/main/images/modelFlow.png" style="width: auto; max-width: 100%; height: auto" title="Web Application" /></a>
@@ -67,6 +67,7 @@ This one of the main feature of our pipeline. We integrated **`retraining`** of 
 2. Bulk training: We also integrated bulk training in our pipeline. When we collect dataset from other sources in bulk, we can use `/bulktraining` API. We can pass csv file, our pipeline will store the dataset on cloud and begin the retraining process, discussed earlier.
     
 ## Accomplishments that we're proud of
+* This project can help in **`Early detection`** of suicidal thoughts which is one of the way for suicide prevention
 * Our project demonstrate a robust pipeline which is automated with help of `mlrun` library.
 * Our project has multiple independent steps for data acquisition from **`MongoDB Atlas`** database, pre-processing , and training of the model.
 * We also include multiple models in our project for training so as to get better model for serving.
@@ -77,6 +78,7 @@ This one of the main feature of our pipeline. We integrated **`retraining`** of 
 * We also include all code and documentation on Github on how to deploy the pipeline on Heroku.
 
 ## What's next for Suicide predictions 
+We plane to incorporate a few more classification classes so as to get more information out of the text, which will help in better prediction of the suicidal severity.
 This project is not limited to only Suicide post prediction, in this new age social media world, textual data is being generated every second. These data can be leveraged in many ways, like deep sentiment analysis, health care related problems can be solved, hate and toxicity of the post can be detected to stop bullying, etc. 
 
 ## Installation and Execution.
