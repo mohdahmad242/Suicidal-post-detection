@@ -51,7 +51,7 @@ The process of pre-processing is added to tranform function of the pipeline, we 
 
 ### �⏱Model training and evaluation.
 In this pipeline we training our data on different models
-1. SCD classifier
+1. SGD classifier
 2. Preceptor model
   <p align="center"><img src="https://github.com/ahmadkhan242/Suicidal-post-detection/blob/main/images/modelFlow.png" style="width: auto; max-width: 100%; height: auto" title="Web Application" />
 </p> 
